@@ -1,2 +1,5 @@
-package holyj.core;public class Lexer {
+package holyj.core;
+
+public class Lexer {
+
 }

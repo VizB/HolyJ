@@ -1,2 +1,5 @@
-package holyj.core;public class Compiler {
+package holyj.core;
+
+public class Compiler {
+
 }

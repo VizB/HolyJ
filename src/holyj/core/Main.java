@@ -32,7 +32,7 @@ public class Main {
                 }
             } else if(args[i].endsWith(".hj")) {
                 compile(new File(args[i]));
-                displayFile(new File(args[i]), 2, 5);
+                //displayFile(new File(args[i]), 2, 5);
             }
         }
     }
@@ -97,27 +97,7 @@ public class Main {
      * @throws Exception If file is not found
      */
     // Terrible compiler code will be changed later
-    private static void compile(File file) throws Exception {
-        int lineCount = 1;
-        try {
-            Scanner in = new Scanner(file);
+    private static void compile(File file) {
 
-            while(in.hasNextLine()) {
-                String curr = in.nextLine();
-
-                if(curr.length() > 1 && curr.endsWith(";")) {
-                    if(curr.startsWith("display")) {
-                        System.out.println(curr.substring(curr.indexOf("\"") + 1, curr.lastIndexOf("\"")));
-                    }
-                } else if(curr.length() > 1) {
-                    throw new Exception("Error: Line: " + lineCount + " is missing a semicolon.\n" +
-                            lineCount + "| " + curr + " <---- Add a ';'");
-                }
-
-                lineCount++;
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Error reading file " + e.getMessage());
-        }
     }
 }
