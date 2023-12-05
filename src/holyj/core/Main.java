@@ -31,8 +31,7 @@ public class Main {
                     case "test" -> {/*TODO: run tests */}
                 }
             } else if(args[i].endsWith(".hj")) {
-                compile(new File(args[i]));
-                //displayFile(new File(args[i]), 2, 5);
+                new Lexer(new File(args[i]));
             }
         }
     }
@@ -72,9 +71,9 @@ public class Main {
     private static void displayFile(File file, int startLineNum, int endLineNum) throws IllegalArgumentException {
         int lineCount = 1;
         String curr;
+
         if(startLineNum > endLineNum) {
-            throw new IllegalArgumentException("Starting Line Number: " + startLineNum + " Ending Line Number: "
-                    + endLineNum + " --- Starting Line Number must be lesser than Ending Line Number");
+            throw new IllegalArgumentException("startLineNum must be lesser than endLineNum");
         }
 
         try {
@@ -89,15 +88,5 @@ public class Main {
         } catch (FileNotFoundException e) {
             System.out.println("Error reading file + " + e.getMessage());
         }
-    }
-
-    /**
-     * Compiles the HolyJ program
-     * @param file File to compile
-     * @throws Exception If file is not found
-     */
-    // Terrible compiler code will be changed later
-    private static void compile(File file) {
-
     }
 }
